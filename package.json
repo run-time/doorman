@@ -1,6 +1,6 @@
 {
   "name": "doorman-auth",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "JavaScript browser fingerprinting helpers packaged as an npm module. Provides configurable, testable, and Node.js-compatible functions for authentication and identification.",
   "main": "index.js",
   "scripts": {

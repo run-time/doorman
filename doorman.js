@@ -475,7 +475,7 @@ const fingerprint_fontsmoothing = () => {
       canvasNode.height = '35';
       canvasNode.style.display = 'none';
       document.body.appendChild(canvasNode);
-      ctx = canvasNode.getContext('2d');
+      ctx = canvasNode.getContext('2d', { willReadFrequently: true });
       ctx.textBaseline = 'top';
       ctx.font = '32px Arial';
       ctx.fillStyle = 'black';
@@ -1352,7 +1352,7 @@ class Doorman {
 
   isCanvasSupported() {
     const elem = document.createElement('canvas');
-    return !!(elem.getContext && elem.getContext('2d'));
+    return !!(elem.getContext && elem.getContext('2d', { willReadFrequently: true }));
   }
 
   isIE() {
