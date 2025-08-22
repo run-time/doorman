@@ -30,7 +30,7 @@ export default [
         clearInterval: 'readonly',
       },
     },
-    ignores: ['dist/**'],
+    ignores: ['dist/**', 'public/**'],
     rules: {
       'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       'no-console': 'off',

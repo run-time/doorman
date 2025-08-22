@@ -1352,7 +1352,9 @@ class Doorman {
 
   isCanvasSupported() {
     const elem = document.createElement('canvas');
-    return !!(elem.getContext && elem.getContext('2d', { willReadFrequently: true }));
+    return !!(
+      elem.getContext && elem.getContext('2d', { willReadFrequently: true })
+    );
   }
 
   isIE() {

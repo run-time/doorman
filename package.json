@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "doorman": "node usage.js",
+    "dev": "npx serve public",
     "test": "npm run test:coverage",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
     "build": "vite build",
-    "lint": "eslint . --ignore-pattern 'dist/**'",
-    "lint:fix": "eslint . --fix --ignore-pattern 'dist/**'",
+    "lint": "eslint . --ignore-pattern 'dist/**' --ignore-pattern 'public/**'",
+    "lint:fix": "eslint . --fix --ignore-pattern 'dist/**' --ignore-pattern 'public/**'",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "verify": "npm install && npm run lint:fix && npm run format:fix && npm test && npm run build",
@@ -45,7 +46,7 @@
     "README.md"
   ],
   "lint-staged": {
-    "*.js": "eslint --fix --ignore-pattern 'dist/**'"
+    "*.js": "eslint --fix --ignore-pattern 'dist/**' --ignore-pattern 'public/**'"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
@@ -56,6 +57,7 @@
     "jsdom": "^26.1.0",
     "lint-staged": "^16.1.5",
     "prettier": "^3.6.2",
+    "vite-plugin-static-copy": "^3.1.2",
     "vitest": "^3.2.4"
   },
   "dependencies": {

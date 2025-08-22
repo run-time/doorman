@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello from Doorman</title>
+    <style>
+      body {
+        font-family: courier, monospace;
+        height: 100vh;
+        margin: 0;
+        background: #f4f4f4;
+        color: #444;
+      }
+
+      .center-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        gap: 2rem;
+      }
+
+      .hello {
+        background: #fff;
+        padding: 2rem 3rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+        font-size: 2rem;
+      }
+
+      .data {
+        width: 100%;
+        text-align: center;
+      }
+
+      .static {
+        font-size: 1.4rem;
+        margin: 0.5rem 0;
+        color: #666;
+      }
+
+      .link {
+        text-decoration: none;
+        color: #368dda;
+        border-bottom: 2px solid transparent;
+        transition: border-bottom 0.4s;
+      }
+
+      .link:hover {
+        border-bottom: 2px solid #368dda;
+      }
+
+      .banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #368dda;
+        color: #fff;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+      }
+
+      .banner a {
+        color: #f4f4f4;
+        border-bottom: 1px solid transparent;
+        text-decoration: none;
+        transition: border-bottom 0.4s;
+      }
+
+      .banner a:hover {
+        border-bottom: 1px solid #f4f4f4;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/Joe12387/detectIncognito@main/dist/es5/detectIncognito.min.js"></script>
+  </head>
+
+  <body>
+    <div class="banner">
+      <a href="https://www.npmjs.com/package/doorman-auth" target="_blank"
+        >doorman-auth v1.0.3</a
+      >
+      <a href="https://github.com/run-time/doorman" target="_blank"
+        >GitHub Repo</a
+      >
+    </div>
+    <div class="center-flex">
+      <div class="data">
+        <div id="browser" class="static"></div>
+        <div id="incognito" class="static"></div>
+      </div>
+      <div id="doorman" class="hello"></div>
+      <div id="link" class="static"></div>
+    </div>
+
+    <script type="module">
+      // recognizedPerson() is basically the only function you'll need
+      import { recognizedPerson } from '/doorman.es.js';
+
+      document.addEventListener('DOMContentLoaded', function () {
+        let personId = recognizedPerson();
+        let browser = 'Unknown';
+        let incognito = false;
+        // get hash from url
+        const uid = window.location.hash.substring(1);
+        const welcomeMessage =
+          parseInt(uid) === parseInt(personId)
+            ? `Welcome back, <strong>${uid}</strong>! 😎`
+            : `Hello, <strong>${personId}</strong>! 👋`;
+        document.getElementById('doorman').innerHTML = welcomeMessage;
+
+        detectIncognito().then((result) => {
+          browser = result.browserName;
+          incognito = result.isPrivate;
+          console.log(
+            `Browser: ${browser}  |  Incognito: ${incognito}  |  User: ${personId}`,
+          );
+          document.getElementById('browser').innerText = `Browser: ${browser}`;
+          document.getElementById('incognito').innerText =
+            `Incognito: ${incognito ? 'Yes' : 'No'}`;
+          document.getElementById('link').innerHTML = incognito
+            ? ''
+            : `<a href="./index.html#${personId}" class="link">right-click to open in incognito mode</a>`;
+        });
+      });
+    </script>
+  </body>
+</html>
