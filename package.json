@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/run-time/doorman#readme",
   "lint-staged": {
-    "*.js": "eslint --fix"
+    "*.js": "eslint --fix --ignore-pattern 'dist/**'"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
