@@ -73,7 +73,7 @@ const fingerprint_canvas = () => {
   let strOut = null;
   try {
     canvas = document.createElement('canvas');
-    strCText = canvas.getContext('2d');
+    strCText = canvas.getContext('2d', { willReadFrequently: true });
     strCText.textBaseline = 'top';
     strCText.font = "14px 'Arial'";
     strCText.textBaseline = 'alphabetic';
@@ -1432,7 +1432,7 @@ class Doorman {
 
   getCanvasFingerprint() {
     const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
     const txt = (ctx.textBaseline = 'top');
     ctx.font = "14px 'Arial'";
     ctx.textBaseline = 'alphabetic';

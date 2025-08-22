@@ -10,7 +10,7 @@ const c = () => {
   const r = null;
   let i = null;
   try {
-    return t = document.createElement("canvas"), e = t.getContext("2d"), e.textBaseline = "top", e.font = "14px 'Arial'", e.textBaseline = "alphabetic", e.fillStyle = "#f60", e.fillRect(125, 1, 62, 20), e.fillStyle = "#069", e.fillText(r, 2, 15), e.fillStyle = "rgba(102, 204, 0, 0.7)", e.fillText(r, 4, 17), i = t.toDataURL(), i;
+    return t = document.createElement("canvas"), e = t.getContext("2d", { willReadFrequently: !0 }), e.textBaseline = "top", e.font = "14px 'Arial'", e.textBaseline = "alphabetic", e.fillStyle = "#f60", e.fillRect(125, 1, 62, 20), e.fillStyle = "#069", e.fillText(r, 2, 15), e.fillStyle = "rgba(102, 204, 0, 0.7)", e.fillText(r, 4, 17), i = t.toDataURL(), i;
   } catch {
     return "N/A";
   }
@@ -548,7 +548,7 @@ class T {
     return this.screen_orientation ? e = window.screen.height > window.screen.width ? [window.screen.height, window.screen.width] : [window.screen.width, window.screen.height] : e = [window.screen.height, window.screen.width], e;
   }
   getCanvasFingerprint() {
-    const e = document.createElement("canvas"), r = e.getContext("2d"), i = r.textBaseline = "top";
+    const e = document.createElement("canvas"), r = e.getContext("2d", { willReadFrequently: !0 }), i = r.textBaseline = "top";
     return r.font = "14px 'Arial'", r.textBaseline = "alphabetic", r.fillStyle = "#f60", r.fillRect(125, 1, 62, 20), r.fillStyle = "#069", r.fillText(i, 2, 15), r.fillStyle = "rgba(102, 204, 0, 0.7)", r.fillText(i, 4, 17), e.toDataURL();
   }
 }
