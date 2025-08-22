@@ -1,0 +1,48 @@
+{
+  "name": "doorman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "doorman": "node usage.js",
+    "test": "npm run test:coverage",
+    "test:watch": "vitest watch",
+    "test:coverage": "vitest run --coverage",
+    "build": "vite build",
+    "lint": "eslint . --ignore-pattern 'dist/**'",
+    "lint:fix": "eslint . --fix --ignore-pattern 'dist/**'",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "verify": "npm install && npm run lint:fix && npm run format:fix && npm test && npm run build",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/run-time/doorman.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/run-time/doorman/issues"
+  },
+  "homepage": "https://github.com/run-time/doorman#readme",
+  "lint-staged": {
+    "*.js": "eslint --fix"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "concurrently": "^9.2.0",
+    "eslint": "^9.33.0",
+    "husky": "^9.1.7",
+    "jsdom": "^26.1.0",
+    "lint-staged": "^16.1.5",
+    "prettier": "^3.6.2",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "canvas": "^3.2.0"
+  }
+}
