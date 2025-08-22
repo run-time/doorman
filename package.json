@@ -1,7 +1,7 @@
 {
-  "name": "doorman",
+  "name": "doorman-auth",
   "version": "1.0.0",
-  "description": "",
+  "description": "JavaScript browser fingerprinting helpers packaged as an npm module. Provides configurable, testable, and Node.js-compatible functions for authentication and identification.",
   "main": "index.js",
   "scripts": {
     "doorman": "node usage.js",
@@ -20,14 +20,30 @@
     "type": "git",
     "url": "git+https://github.com/run-time/doorman.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "fingerprinting",
+    "browser",
+    "authentication",
+    "identification",
+    "security",
+    "jsdom",
+    "nodejs",
+    "npm",
+    "library",
+    "doorman"
+  ],
+  "author": "Dave Alger <me@davealger.com>",
   "license": "ISC",
   "type": "module",
   "bugs": {
     "url": "https://github.com/run-time/doorman/issues"
   },
-  "homepage": "https://github.com/run-time/doorman#readme",
+  "homepage": "https://github.com/run-time/doorman",
+  "files": [
+    "dist",
+    "doorman.js",
+    "README.md"
+  ],
   "lint-staged": {
     "*.js": "eslint --fix --ignore-pattern 'dist/**'"
   },
